@@ -1,0 +1,16 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: block-shell
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: shell-injection-go-app
+  process:
+    matchPaths:
+      - path: /bin/sh
+      - path: /bin/bash
+      - path: /bin/busybox
+  action:
+    Block
