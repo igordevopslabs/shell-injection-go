@@ -14,7 +14,7 @@ func ExecuteCommand(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("Comando recebido:", cmd)
 
-	output, err := exec.Command("bash", "-c", cmd).Output()
+	output, err := exec.Command("sh", "-c", cmd).Output()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
