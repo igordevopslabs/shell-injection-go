@@ -1,0 +1,11 @@
+replicaCount: 1
+
+app:
+  name: shell-injection-go-app
+  image: igoritosousa22/shell-injection-go:v1
+  containerPort: 9000
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 9000

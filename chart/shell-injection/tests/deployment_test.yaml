@@ -1,0 +1,13 @@
+suite: Test for Service
+templates:
+  - deployment.yaml
+tests:
+  - it: should return a ClusterIP like service type 
+    set:
+      app.containerPort: 9000
+    asserts:
+      - isKind:
+          of: Deployment
+      - equal:
+          path: spec.template.spec.containers[0].ports[0].containerPort
+          value: 9000

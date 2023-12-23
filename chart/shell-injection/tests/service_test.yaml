@@ -1,0 +1,13 @@
+suite: Test for Service
+templates:
+  - service.yaml
+tests:
+  - it: should return a ClusterIP like service type 
+    set:
+      service.type: ClusterIP
+    asserts:
+      - isKind:
+          of: Service
+      - equal:
+          path: spec.type
+          value: ClusterIP
