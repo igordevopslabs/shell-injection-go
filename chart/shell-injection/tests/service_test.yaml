@@ -1,4 +1,4 @@
-suite: Test for Service
+suite: Test for Service object
 templates:
   - service.yaml
 tests:

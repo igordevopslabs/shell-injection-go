@@ -1,0 +1,13 @@
+suite: Test for Ingress object
+templates:
+  - ingress.yaml
+tests:
+  - it: should return a Path like /inject
+    set:
+      ingress.host: s.example.com
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: spec.rules[0].http.paths[0].path
+          value: /inject

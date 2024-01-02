@@ -9,3 +9,11 @@ service:
   type: ClusterIP
   port: 80
   targetPort: 9000
+
+ingress:
+  path: /inject
+  host: s.example.com
+  svc:
+    name: shell-injection-go-app-service
+    port:
+      name: svc-port
