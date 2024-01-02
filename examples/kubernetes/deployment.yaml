@@ -31,4 +31,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 9000
+      name: svc-port
   type: ClusterIP
